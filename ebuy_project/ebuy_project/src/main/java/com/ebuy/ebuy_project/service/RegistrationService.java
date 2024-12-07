@@ -13,4 +13,6 @@ List<Registration> getAll();
 void delete(int id);
 //put
 Registration updateRecord(int i,Registration r);
+
+List<Registration> login(String email, String password);
 }

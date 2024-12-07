@@ -41,4 +41,9 @@ public Registration update(@PathVariable("rid")int i,@RequestBody Registration r
 {
 	return rs.updateRecord(i,r);
 }
+@GetMapping("/login/{email}/{password}")
+public List<Registration> login(@PathVariable("email") String email, @PathVariable("password") String password)
+{
+	return rs.login(email, password);
+}
 }
