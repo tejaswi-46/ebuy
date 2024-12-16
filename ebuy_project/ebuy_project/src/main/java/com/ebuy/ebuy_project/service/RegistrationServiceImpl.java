@@ -47,6 +47,7 @@ public class RegistrationServiceImpl implements RegistrationService{
 			rold.setPassword(r.getPassword());
 			rold.setAddress(r.getAddress());
 			rold.setCity(r.getCity());
+			rold.setState(r.getState());
 			return regRepo.save(rold);
 		}
 		return null;

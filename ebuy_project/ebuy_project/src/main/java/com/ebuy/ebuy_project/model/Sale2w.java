@@ -4,19 +4,20 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 @Entity
-public class SaleCar {
+public class Sale2w {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int sid;
 	private String brand,name,fuel,description,address,city,state;
-	private int noofown/*no of owners*/,year,price;
-	public SaleCar() {
+	private int noofown/*no of owners*/,year,price,kmdriven;
+	public Sale2w() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SaleCar(String brand, String name, String fuel, String description, String address, String city,
-			String state, int noofown, int year, int price) {
+	public Sale2w(String brand, String name, String fuel, String description, String address, String city, String state,
+			int noofown, int year, int price, int kmdriven) {
 		super();
 		this.brand = brand;
 		this.name = name;
@@ -28,6 +29,7 @@ public class SaleCar {
 		this.noofown = noofown;
 		this.year = year;
 		this.price = price;
+		this.kmdriven = kmdriven;
 	}
 	public int getSid() {
 		return sid;
@@ -95,12 +97,17 @@ public class SaleCar {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	public int getKmdriven() {
+		return kmdriven;
+	}
+	public void setKmdriven(int kmdriven) {
+		this.kmdriven = kmdriven;
+	}
 	@Override
 	public String toString() {
-		return "SaleCar [sid=" + sid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
+		return "Sale2w [sid=" + sid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
 				+ description + ", address=" + address + ", city=" + city + ", state=" + state + ", noofown=" + noofown
-				+ ", year=" + year + ", price=" + price + "]";
+				+ ", year=" + year + ", price=" + price + ", kmdriven=" + kmdriven + "]";
 	}
 	
-
 }

@@ -4,29 +4,33 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
 @Entity
-public class SaleCar {
+public class SaleDevice {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int sid;
-	private String brand,name,fuel,description,address,city,state;
-	private int noofown/*no of owners*/,year,price;
-	public SaleCar() {
+	private String brand,name,condition,charger,description,address,city,state;
+	private int noofown/*no of owners*/,year,storage,network,price;
+	public SaleDevice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SaleCar(String brand, String name, String fuel, String description, String address, String city,
-			String state, int noofown, int year, int price) {
+	public SaleDevice(String brand, String name, String condition, String charger, String description, String address,
+			String city, String state, int noofown, int year, int storage, int network, int price) {
 		super();
 		this.brand = brand;
 		this.name = name;
-		this.fuel = fuel;
+		this.condition = condition;
+		this.charger = charger;
 		this.description = description;
 		this.address = address;
 		this.city = city;
 		this.state = state;
 		this.noofown = noofown;
 		this.year = year;
+		this.storage = storage;
+		this.network = network;
 		this.price = price;
 	}
 	public int getSid() {
@@ -47,11 +51,17 @@ public class SaleCar {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getFuel() {
-		return fuel;
+	public String getCondition() {
+		return condition;
 	}
-	public void setFuel(String fuel) {
-		this.fuel = fuel;
+	public void setCondition(String condition) {
+		this.condition = condition;
+	}
+	public String getCharger() {
+		return charger;
+	}
+	public void setCharger(String charger) {
+		this.charger = charger;
 	}
 	public String getDescription() {
 		return description;
@@ -89,6 +99,18 @@ public class SaleCar {
 	public void setYear(int year) {
 		this.year = year;
 	}
+	public int getStorage() {
+		return storage;
+	}
+	public void setStorage(int storage) {
+		this.storage = storage;
+	}
+	public int getNetwork() {
+		return network;
+	}
+	public void setNetwork(int network) {
+		this.network = network;
+	}
 	public int getPrice() {
 		return price;
 	}
@@ -97,10 +119,10 @@ public class SaleCar {
 	}
 	@Override
 	public String toString() {
-		return "SaleCar [sid=" + sid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
-				+ description + ", address=" + address + ", city=" + city + ", state=" + state + ", noofown=" + noofown
-				+ ", year=" + year + ", price=" + price + "]";
+		return "Sale [sid=" + sid + ", brand=" + brand + ", name=" + name + ", condition=" + condition
+				+ ", charger=" + charger + ", description=" + description + ", address=" + address + ", city=" + city
+				+ ", state=" + state + ", noofown=" + noofown + ", year=" + year + ", storage=" + storage + ", network="
+				+ network + ", price=" + price + "]";
 	}
 	
-
 }
