@@ -10,15 +10,15 @@ public class Feedback {
 @Id
 @GeneratedValue(strategy = GenerationType.AUTO)
 private int feedbackid;
-private String name,emailid,message;
+private String name,email,message;
 public Feedback() {
 	super();
 	// TODO Auto-generated constructor stub
 }
-public Feedback(String name, String emailid, String message) {
+public Feedback(String name, String email, String message) {
 	super();
 	this.name = name;
-	this.emailid = emailid;
+	this.email = email;
 	this.message = message;
 }
 public int getFeedbackid() {
@@ -34,10 +34,10 @@ public void setName(String name) {
 	this.name = name;
 }
 public String getEmailid() {
-	return emailid;
+	return email;
 }
 public void setEmailid(String emailid) {
-	this.emailid = emailid;
+	this.email = emailid;
 }
 public String getMessage() {
 	return message;
@@ -47,7 +47,7 @@ public void setMessage(String message) {
 }
 @Override
 public String toString() {
-	return "Feedback [feedbackid=" + feedbackid + ", name=" + name + ", emailid=" + emailid + ", message=" + message
+	return "Feedback [feedbackid=" + feedbackid + ", name=" + name + ", emailid=" + email + ", message=" + message
 			+ "]";
 }
 

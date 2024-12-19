@@ -1,43 +1,73 @@
 package com.ebuy.ebuy_project.model;
 
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class SaleDevice {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int sid;
-	private String brand,name,condition,charger,description,address,city,state;
-	private int noofown/*no of owners*/,year,storage,network,price;
+	private int sdid;
+	private String brand,name,condition1,charger,description,address,city,state,network;
+	private int noofown/*no of owners*/,year,storage,price;
+
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name="saleDevice_images",joinColumns= {
+			@JoinColumn(name="saleDevice_sdid")
+	},
+	inverseJoinColumns= {
+			@JoinColumn(name="image_id")
+	}
+	)
+	private Set<ImageModel> saleImages;
+
+
+
+	public Set<ImageModel> getSaleDeviceImages() {
+		return saleImages;
+	}
+	public void setSaleDeviceImages(Set<ImageModel> saleImages) {
+		this.saleImages = saleImages;
+	}
+	
+	
 	public SaleDevice() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public SaleDevice(String brand, String name, String condition, String charger, String description, String address,
-			String city, String state, int noofown, int year, int storage, int network, int price) {
+	
+	public SaleDevice(String brand, String name, String condition1, String charger, String description, String address,
+			String city, String state, String network, int noofown, int year, int storage, int price) {
 		super();
 		this.brand = brand;
 		this.name = name;
-		this.condition = condition;
+		this.condition1 = condition1;
 		this.charger = charger;
 		this.description = description;
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		this.network = network;
 		this.noofown = noofown;
 		this.year = year;
 		this.storage = storage;
-		this.network = network;
 		this.price = price;
 	}
-	public int getSid() {
-		return sid;
+	
+	public int getSdid() {
+		return sdid;
 	}
-	public void setSid(int sid) {
-		this.sid = sid;
+	public void setSdid(int sdid) {
+		this.sdid = sdid;
 	}
 	public String getBrand() {
 		return brand;
@@ -51,11 +81,11 @@ public class SaleDevice {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getCondition() {
-		return condition;
+	public String getCondition1() {
+		return condition1;
 	}
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setCondition(String condition1) {
+		this.condition1 = condition1;
 	}
 	public String getCharger() {
 		return charger;
@@ -87,6 +117,12 @@ public class SaleDevice {
 	public void setState(String state) {
 		this.state = state;
 	}
+	public String getNetwork() {
+		return network;
+	}
+	public void setNetwork(String network) {
+		this.network = network;
+	}
 	public int getNoofown() {
 		return noofown;
 	}
@@ -105,12 +141,6 @@ public class SaleDevice {
 	public void setStorage(int storage) {
 		this.storage = storage;
 	}
-	public int getNetwork() {
-		return network;
-	}
-	public void setNetwork(int network) {
-		this.network = network;
-	}
 	public int getPrice() {
 		return price;
 	}
@@ -119,10 +149,11 @@ public class SaleDevice {
 	}
 	@Override
 	public String toString() {
-		return "Sale [sid=" + sid + ", brand=" + brand + ", name=" + name + ", condition=" + condition
+		return "SaleDevice [sdid=" + sdid + ", brand=" + brand + ", name=" + name + ", condition=" + condition1
 				+ ", charger=" + charger + ", description=" + description + ", address=" + address + ", city=" + city
-				+ ", state=" + state + ", noofown=" + noofown + ", year=" + year + ", storage=" + storage + ", network="
-				+ network + ", price=" + price + "]";
+				+ ", state=" + state + ", network=" + network + ", noofown=" + noofown + ", year=" + year + ", storage="
+				+ storage + ", price=" + price + "]";
 	}
+	
 	
 }

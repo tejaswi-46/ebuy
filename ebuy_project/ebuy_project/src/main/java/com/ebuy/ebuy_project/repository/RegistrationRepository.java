@@ -13,6 +13,6 @@ import com.ebuy.ebuy_project.model.Registration;
 @Qualifier("regRepo")
 public interface RegistrationRepository extends JpaRepository<Registration, Integer>{
 	@Query(value = "select * from registration where email=:email and password=:password",nativeQuery = true)
-	List<Registration> findAllByEmailidAndPassword(String email, String password);
+	List<Registration> findAllByEmailAndPassword(String email, String password);
 
 }

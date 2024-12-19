@@ -1,16 +1,44 @@
 package com.ebuy.ebuy_project.model;
 
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 @Entity
 public class SaleCar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int sid;
+	private int scid;
 	private String brand,name,fuel,description,address,city,state;
 	private int noofown/*no of owners*/,year,price;
+
+	@ManyToMany(fetch=FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name="saleCar_images",joinColumns= {
+			@JoinColumn(name="saleCar_scid")
+	},
+	inverseJoinColumns= {
+			@JoinColumn(name="image_id")
+	}
+	)
+	private Set<ImageModel> saleImages;
+
+
+
+	public Set<ImageModel> getSaleCarImages() {
+		return saleImages;
+	}
+	public void setSaleCarImages(Set<ImageModel> saleImages) {
+		this.saleImages = saleImages;
+	}
+	
+	
 	public SaleCar() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -29,11 +57,11 @@ public class SaleCar {
 		this.year = year;
 		this.price = price;
 	}
-	public int getSid() {
-		return sid;
+	public int getScid() {
+		return scid;
 	}
-	public void setSid(int sid) {
-		this.sid = sid;
+	public void setScid(int scid) {
+		this.scid = scid;
 	}
 	public String getBrand() {
 		return brand;
@@ -97,7 +125,7 @@ public class SaleCar {
 	}
 	@Override
 	public String toString() {
-		return "SaleCar [sid=" + sid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
+		return "SaleCar [sid=" + scid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
 				+ description + ", address=" + address + ", city=" + city + ", state=" + state + ", noofown=" + noofown
 				+ ", year=" + year + ", price=" + price + "]";
 	}
