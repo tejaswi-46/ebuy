@@ -50,7 +50,7 @@ private FileStorageService fileStorageService;
 		
 	}
 	@PostMapping(value= {"/saledevices"},consumes= {MediaType.MULTIPART_FORM_DATA_VALUE})
-	public SaleDevice insertrecord(@RequestPart("saledevices") SaleDevice e,@RequestPart("imageFile") MultipartFile[] files)
+	public SaleDevice insertrecord(@RequestPart("saledevice") SaleDevice e,@RequestPart("imageFile") MultipartFile[] files)
 	{
 		try {
 			Set<ImageModel> images=uploadImages(files);

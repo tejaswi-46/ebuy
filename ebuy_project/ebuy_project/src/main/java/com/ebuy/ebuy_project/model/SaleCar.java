@@ -31,10 +31,10 @@ public class SaleCar {
 
 
 
-	public Set<ImageModel> getSaleCarImages() {
+	public Set<ImageModel> getSaleImages() {
 		return saleImages;
 	}
-	public void setSaleCarImages(Set<ImageModel> saleImages) {
+	public void setSaleImages(Set<ImageModel> saleImages) {
 		this.saleImages = saleImages;
 	}
 	
@@ -43,6 +43,7 @@ public class SaleCar {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public SaleCar(String brand, String name, String fuel, String description, String address, String city,
 			String state, int noofown, int year, int price) {
 		super();
@@ -53,6 +54,7 @@ public class SaleCar {
 		this.address = address;
 		this.city = city;
 		this.state = state;
+		
 		this.noofown = noofown;
 		this.year = year;
 		this.price = price;
@@ -87,6 +89,8 @@ public class SaleCar {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+
 	public String getAddress() {
 		return address;
 	}
@@ -125,9 +129,8 @@ public class SaleCar {
 	}
 	@Override
 	public String toString() {
-		return "SaleCar [sid=" + scid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
-				+ description + ", address=" + address + ", city=" + city + ", state=" + state + ", noofown=" + noofown
-				+ ", year=" + year + ", price=" + price + "]";
+		return "SaleCar [scid=" + scid + ", brand=" + brand + ", name=" + name + ", fuel=" + fuel + ", description="
+				+ description + ", address=" + address + ", city=" + city + ", state=" + state + ", noofown=" + noofown + ", year=" + year + ", price=" + price + "]";
 	}
 	
 

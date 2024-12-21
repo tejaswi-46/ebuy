@@ -118,6 +118,13 @@ public class SaleOther {
 	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	public Set<ImageModel> getSaleImages() {
+		return saleImages;
+	}
+	public void setSaleImages(Set<ImageModel> saleImages) {
+		this.saleImages = saleImages;
+	}
 	@Override
 	public String toString() {
 		return "SaleOther [soid=" + soid + ", brand=" + brand + ", name=" + name + ", description=" + description

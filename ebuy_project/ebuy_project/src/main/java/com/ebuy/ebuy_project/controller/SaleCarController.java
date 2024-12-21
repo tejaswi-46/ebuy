@@ -48,11 +48,11 @@ public class SaleCarController {
 		
 	}
 	@PostMapping(value= {"/salecars"},consumes= {MediaType.MULTIPART_FORM_DATA_VALUE})
-	public SaleCar insertrecord(@RequestPart("salecars") SaleCar e,@RequestPart("imageFile") MultipartFile[] files)
+	public SaleCar insertrecord(@RequestPart("salecar") SaleCar e,@RequestPart("imageFile") MultipartFile[] files)
 	{
 		try {
 			Set<ImageModel> images=uploadImages(files);
-			e.setSaleCarImages(images);
+			e.setSaleImages(images);
 			return saleCarRepo.save(e);
 		} catch (Exception e2) {
 			e2.printStackTrace();

@@ -1,0 +1,53 @@
+<div class="container">
+    <h3>Sale Others Here</h3>
+
+    <form (ngSubmit)="onSubmit()">
+
+       
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" id="brand" required [(ngModel)]="saleother.brand" name="brand">
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="saleother.name"
+                name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" required [(ngModel)]="saleother.description"
+                name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="noofown">Number of owners</label>
+            <input type="number" class="form-control" id="noofown" required [(ngModel)]="saleother.noofown"
+                name="noofown">
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="year" class="form-control" id="year" required [(ngModel)]="saleother.year"
+                name="year">
+        </div>
+        <div class="form-group">
+            <label for="price">Set price</label>
+            <input type="text" class="form-control" id="price" required [(ngModel)]="saleother.price"
+                name="price">
+        </div>
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" id="image" required multiple value="select"
+                (change)="onFileSelected($event)">
+            <div class="row">
+                <div *ngFor="let file of saleother.saleImages;let i =index" class="col-sm-2">
+                    <span class="close" (click)="removeImage(i)">x</span>
+                    <img [src]="file.url" alt="" width="100px" height="100px">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

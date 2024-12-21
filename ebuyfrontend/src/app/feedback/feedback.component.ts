@@ -19,6 +19,7 @@ constructor(private fdserv:FeedbackService)
 
 submitdata()
 {
+  this.fd.name=localStorage.getItem("name")
   this.fd.email=localStorage.getItem("email")
   this.fdserv.savefeedback(this.fd).subscribe(data=>{
     if(data!=null)

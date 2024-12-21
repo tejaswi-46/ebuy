@@ -84,7 +84,7 @@ public class SaleDevice {
 	public String getCondition1() {
 		return condition1;
 	}
-	public void setCondition(String condition1) {
+	public void setCondition1(String condition1) {
 		this.condition1 = condition1;
 	}
 	public String getCharger() {
@@ -146,6 +146,13 @@ public class SaleDevice {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public Set<ImageModel> getSaleImages() {
+		return saleImages;
+	}
+	public void setSaleImages(Set<ImageModel> saleImages) {
+		this.saleImages = saleImages;
 	}
 	@Override
 	public String toString() {

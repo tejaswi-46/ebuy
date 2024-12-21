@@ -14,7 +14,7 @@
       <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'guest'">
         <ul class="nav navbar-nav">
           <li class="active"><a routerLink="/">Home</a></li>
-          <li><a routerLink="/">Page 1</a></li>
+          <li><a routerLink="/categories">Categories</a></li>
           <li><a routerLink="/vfeedback">View Feedback</a></li>
 
           <form class="navbar-form navbar-left" action="/action_page.php">
@@ -28,17 +28,6 @@
             </div>
           </form>
 
-          <li><a routerLink="/feedback">Feedback</a></li>
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/">Sale
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/">Electronics</a></li>
-              <li><a routerLink="/">Books</a></li>
-              <li><a routerLink="/">Furnitures</a></li>
-            </ul>
-          </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a routerLink="/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -54,9 +43,31 @@
       <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'user'">
         <ul class="nav navbar-nav">
           <li class="active"><a routerLink="/">Home</a></li>
-          <li><a routerLink="/">Page 1</a></li>
-          <li><a routerLink="/">Page 2</a></li>
+         
+          
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/">Buy Category wise
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/cars">Vehicles</a></li>
+              <li><a routerLink="/devices">Electronics</a></li>
+              <li><a routerLink="/others">Others</a></li>
+            </ul>
+          </li>
 
+
+          <li><a routerLink="/feedback">Feedback</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/">Sale
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/msalecar">Sale Vehicles</a></li>
+              <li><a routerLink="/msaledevice">Sale Electronics</a></li>
+              <li><a routerLink="/msaleother">Sale Others</a></li>
+            </ul>
+          </li>
+          
+          <li><a routerLink="/">Responses</a></li>
           <form class="navbar-form navbar-left" action="/action_page.php">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search">
@@ -67,18 +78,9 @@
               </div>
             </div>
           </form>
+          
 
-          <li><a routerLink="/feedback">Feedback</a></li>
-
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/">Sale
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/">Electronics</a></li>
-              <li><a routerLink="/">Books</a></li>
-              <li><a routerLink="/">Furnitures</a></li>
-            </ul>
-          </li>
+          
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out "></span>Logout</a></li>
@@ -91,18 +93,9 @@
       <div class="collapse navbar-collapse" id="myNavbar" *ngSwitchCase="'admin'">
         <ul class="nav navbar-nav">
           <li class="active"><a routerLink="/">Home</a></li>
-          <li><a routerLink="/salecar">Manage Cars Sale</a></li>
           <li><a routerLink="/vfeedback">View Feedback</a></li>
           <li><a routerLink="/vreg">View Registrations</a></li>
-          <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" routerLink="/">Sale
-              <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/">Electronics</a></li>
-              <li><a routerLink="/">Books</a></li>
-              <li><a routerLink="/">Furnitures</a></li>
-            </ul>
-          </li>
+          
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a (click)="alogout()"><span class="glyphicon glyphicon-log-out "></span>Logout</a></li>

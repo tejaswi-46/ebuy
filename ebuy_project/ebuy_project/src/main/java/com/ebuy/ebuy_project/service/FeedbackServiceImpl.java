@@ -42,7 +42,7 @@ public class FeedbackServiceImpl implements FeedbackService{
 			//get old record in rold obj
 			Feedback rold=opt.get();
 			rold.setName(r.getName());
-			rold.setEmailid(r.getEmailid());
+			rold.setEmail(r.getEmail());
 			rold.setMessage(r.getMessage());
 			return feedRepo.save(rold);
 		}

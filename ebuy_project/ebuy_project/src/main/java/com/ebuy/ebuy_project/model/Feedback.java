@@ -33,11 +33,11 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getEmailid() {
+public String getEmail() {
 	return email;
 }
-public void setEmailid(String emailid) {
-	this.email = emailid;
+public void setEmail(String email) {
+	this.email = email;
 }
 public String getMessage() {
 	return message;

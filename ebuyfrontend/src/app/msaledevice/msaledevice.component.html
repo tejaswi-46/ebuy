@@ -1,0 +1,76 @@
+<div class="container">
+    <h3>Sale Electronics Here</h3>
+
+    <form (ngSubmit)="onSubmit()">
+
+       
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input type="text" class="form-control" id="brand" required [(ngModel)]="saledevice.brand" name="brand">
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" required [(ngModel)]="saledevice.name"
+                name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="condition1">Condition</label>
+            <input type="text" class="form-control" id="condition1" required [(ngModel)]="saledevice.condition1"
+                name="condition1">
+        </div>
+
+        <div class="form-group">
+            <label for="charger">Charger</label>
+            <input type="text" class="form-control" id="charger" required [(ngModel)]="saledevice.charger"
+                name="charger">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" required [(ngModel)]="saledevice.description"
+                name="description"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="network">Network</label>
+            <input type="text" class="form-control" id="network" required [(ngModel)]="saledevice.network"
+                name="network">
+        </div>
+
+        <div class="form-group">
+            <label for="noofown">Number of owners</label>
+            <input type="number" class="form-control" id="noofown" required [(ngModel)]="saledevice.noofown"
+                name="noofown">
+        </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="year" class="form-control" id="year" required [(ngModel)]="saledevice.year"
+                name="year">
+        </div>
+        <div class="form-group">
+            <label for="storage">Storage</label>
+            <input type="text" class="form-control" id="storage" required [(ngModel)]="saledevice.storage"
+                name="storage">
+        </div>
+        <div class="form-group">
+            <label for="price">Set price</label>
+            <input type="text" class="form-control" id="price" required [(ngModel)]="saledevice.price"
+                name="price">
+        </div>
+        <div class="form-group">
+            <label for="image">Upload Image</label>
+            <input type="file" class="form-control" id="image" required multiple value="select"
+                (change)="onFileSelected($event)">
+            <div class="row">
+                <div *ngFor="let file of saledevice.saleImages;let i =index" class="col-sm-2">
+                    <span class="close" (click)="removeImage(i)">x</span>
+                    <img [src]="file.url" alt="" width="100px" height="100px">
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

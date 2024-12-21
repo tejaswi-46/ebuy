@@ -22,8 +22,13 @@ submitdata()
     if(data.length>0)
     {
       alert("login successful")
+      let ro=data[0]
       localStorage.setItem("email",this.reg.email)
       localStorage.setItem("menutype","user")
+      localStorage.setItem("name",ro.name)
+      localStorage.setItem("address",ro.address)
+      localStorage.setItem("city",ro.city)
+      localStorage.setItem("state",ro.state)
       this.router.navigate(["/"])
     }
     else
